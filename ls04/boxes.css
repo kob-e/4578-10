@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box;
+}
+.box {
+    width: 100px;
+    height: 100px;
+}
+
+/* 111 */
+div#first-box.box1 {
+    background-color: yellow;
+    padding: 10px;
+    border: 1px solid #000;
+    /*
+        border-width: 1px;
+        border-style: solid;
+        border-color: #000;
+    */
+    margin:20px;
+}
+
+/* 210 */
+#my-page #first-box.box1 {
+    border-width: 5px;
+    background-color: tomato;
+}
+
+.box1 {
+    background-color: brown;
+}
+
+.box2 {
+    background-color: pink;
+    padding: 5px 10px;
+    border: 1px solid #000;
+    margin:20px;
+}
+
+input[type="text"] {
+    background-color: orange
+}

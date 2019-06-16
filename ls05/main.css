@@ -1,0 +1,30 @@
+.text {
+    margin-bottom: 20px;
+}
+.text::before {
+    content: "Hello ";
+    border: 1px solid #000;
+}
+
+.text::after {
+    content: " Today?";
+    position: relative;
+    top:20px;
+}
+
+.required.field > label::after {
+    content: "* ";
+    color: rgb(255,0,0);
+}
+
+/* files icons */
+
+a[href$=".pdf"]::before {
+    display: inline-block;
+    content: " ";
+    background-image: url(images/pdf-icon.png);
+    background-size: 15px;
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+}

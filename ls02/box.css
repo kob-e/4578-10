@@ -1,0 +1,56 @@
+.box {
+	width: 100px;
+	height: 100px;
+	margin: 0 auto 20px;
+}
+.box1 {
+	background-color: green;
+	border: 1px solid #8a1fa8;
+	 
+	/* border: 3px solid rgb(138, 31, 168); */
+	/*margin-bottom: 20px;*/
+}
+
+.box2 {
+	background-color: #000000;
+	border: 3px dashed #ffffff;
+}
+
+.margin-example {
+	/* margin: 20px; */
+	margin-top: 20px;
+	margin-right: 20px;
+	margin-bottom: 20px;
+	margin-left: 20px;
+
+	/* margin: 20px 30px; */
+	margin-top: 20px;
+	margin-right: 30px;
+	margin-bottom: 20px;
+	margin-left: 30px;
+
+	/* margin: 20px 30px 10px; */
+	margin-top: 20px;
+	margin-right: 30px;
+	margin-bottom: 10px;
+	margin-left: 30px;
+
+	/* margin: 20px 30px 10px 0; */
+	margin-top: 20px;
+	margin-right: 30px;
+	margin-bottom: 10px;
+	margin-left: 0;
+}
+
+.border-example {
+	/* border: 1px solid black; */
+	border-width: 1px;
+	border-style: solid;
+	border-color: black;
+
+	/*
+	border-bottom-width: 5px;
+	border-bottom-style: solid;
+	border-bottom-color: black;
+	*/
+}

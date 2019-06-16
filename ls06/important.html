@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body.rtl {
+            direction: rtl;
+        }
+        body.rtl  #main .red {
+            margin: 10px 40px 30px 20px;
+        }
+
+        #main .red {
+            margin: 10px 20px 30px 40px;
+            background-color: pink;
+        }
+        .red {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            color: #fff;
+        }
+
+        div {
+            background-color: green !important;
+        }
+    </style>
+</head>
+
+<body class="rtl">
+    <section id="main">
+        <div class="red">
+            שלום לכם
+        </div>
+    </section>
+</body>
+
+</html>

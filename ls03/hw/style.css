@@ -1,0 +1,23 @@
+img {
+    width: 100px;
+}
+
+nav {
+    margin-bottom: 25px;
+}
+.active {
+    color: #bdbdbd;
+}
+
+.label-field {
+    width: 120px;
+    display: inline-block;
+}
+
+.field-container {
+    margin-bottom: 15px;
+}
+
+.centered {
+    text-align: center;
+}

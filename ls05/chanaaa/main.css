@@ -1,0 +1,43 @@
+.text {
+    margin-bottom: 20px;
+}
+.text::before {
+    content: "Hello ";
+    border: 1px solid #000;
+}
+
+.text::after {
+    content: " Today?";
+    position: relative;
+    top:20px;
+}
+
+.required.field > label::after {
+    content: "* ";
+    color: rgb(255,0,0);
+}
+
+/* files icons */
+
+a[href$=".pdf"]::before, 
+a[href$=".xlsx"]::before,
+a[href$=".docx"]::before  {
+    background-size: 20px;
+    width: 20px;
+    height: 20px;
+    display:inline-block;
+    content: "";
+    margin-right: 3px;
+}
+
+a[href$=".pdf"]::before {
+    background-image: url("images/pdf-icon.png");
+}
+
+a[href$=".xlsx"]::before {
+    background-image: url("images/excel-icon.png");
+}
+
+a[href$=".docx"]::before {
+    background-image: url("images/word-icon.png");
+}

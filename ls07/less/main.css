@@ -1,0 +1,26 @@
+body {
+  font-size: 15px;
+}
+.page-heading {
+  color: #468966;
+}
+.old-news-heading {
+  color: #c8b03b;
+  font-size: 2em;
+}
+.news-heading {
+  font-size: 3em;
+  color: #c8b03b;
+}
+a:hover {
+  color: #468966;
+}
+.old-news {
+  font-size: 1.3em;
+}
+.old-news p {
+  border: 1px solid black;
+}
+.old-news p span.highlight {
+  background-color: #c8b03b;
+}

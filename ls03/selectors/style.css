@@ -1,0 +1,68 @@
+/* all tags */
+* {
+    color: rgb(120, 65, 175);
+}
+
+/* by tag element */
+h3 {
+    color: rgb(10, 80, 155);
+}
+
+/* by id attribute - # */
+#master-head {
+    color: rgb(88, 99, 101);
+}
+
+/* by class attribute - . */
+.second-heading {
+    color: rgb( 213, 214, 215);
+}
+
+.field {
+    margin-bottom: 15px;
+}
+
+.field * {
+    color: black;
+}
+
+/* one of span aprents has class .field */
+/*.field label {
+    display: inline-block;
+    width: 150px;
+}*/
+
+/* direct span parent has class .field */
+.field > label {
+    display: inline-block;
+    width: 150px;
+}
+
+ul + p {
+    font-weight: 700;
+}
+
+ul ~ p {
+    text-decoration: underline;
+}
+
+/* attributes selectors [] */
+a[title] {
+    color: #888888;
+}
+
+a[title="https://google.co.il"] {
+    color: #111111;
+}
+
+a[href*="walla"] {
+    color: rgb(21, 38, 61);
+}
+
+a[href^="http://"] {
+    color: rgb(200, 200, 100);
+}
+
+a[href$=".fr"] {
+    color: rgb(50, 150, 0);
+}

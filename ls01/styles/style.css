@@ -1,0 +1,24 @@
+* {
+	text-align: center;
+}
+
+div {
+	color: green;
+	font-weight: 700;
+}
+
+h1, h2 {
+	text-decoration: underline;
+}
+
+div {
+	color: red;
+}
+
+#myheading {
+	color: brown;
+}
+
+.headings {
+	font-size: 45px;
+}

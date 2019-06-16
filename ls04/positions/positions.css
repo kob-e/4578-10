@@ -1,0 +1,43 @@
+.box {
+    width: 100px;
+    height: 100px;
+}
+
+.green {
+    background-color: rgb(0, 255, 0);
+}
+
+.blue {
+    background-color: rgb(0, 0, 255);
+}
+
+/* fixed */
+body.fixed {
+  height: 2000px; 
+}
+
+.fixed .green {
+    position: fixed;
+}
+
+/* absolute */
+body.abs {
+    height: 2000px; 
+  }
+
+  .abs .blue {
+      position: relative;
+    margin-top: 250px;
+}
+  .abs .green {
+    position: absolute;
+    left:0;
+    top: 50px
+}
+
+/* relative */
+.relative .green {
+    position: relative;
+    left:200px;
+    top: 0;
+}

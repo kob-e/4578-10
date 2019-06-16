@@ -1,0 +1,47 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 16px;
+}
+
+h1 {
+    font-size: 3em;
+}
+.boxes .box {
+    float: left;
+    width: 100%;
+    border:1px solid #000;
+    min-height: 100px;
+}
+
+@media print {
+    body {
+        color: red;
+    }
+}
+
+@media screen {
+    .banner {
+        display: none;
+    }
+}
+
+
+
+/* break points */
+@media (min-width: 420px) and (max-width: 760px) { /* tablet */
+    .boxes .box {
+        width: 50%;
+    }
+}
+
+@media screen and (min-width: 800px) { /* desktop */
+    body {
+        font-size: 13px;
+    }
+    .boxes .box {
+        width: 33%;
+    }
+}

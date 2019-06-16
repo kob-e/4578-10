@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input id='num'>
+    <button id='x'>x</button>
+    <button id='o'>o</button>
+    <canvas id='canvas' width="600" height="600"></canvas>
+    <script>
+        (function () {
+            'use strict';
+            var cSize = 600;
+            var boxSize = cSize / 3;
+            var canvas = document.getElementById('canvas');
+            var ctx = canvas.getContext('2d');
+
+            function drawO(boxNum) {
+                ctx.beginPath(); 
+                var radius = 50;
+                var startAngle = 0 * Math.PI;
+                var endAngle = 2 * Math.PI;
+                var xCordinate = boxNum % 3 * boxSize + boxSize /2;
+                var yCordinate = Math.floor(boxNum / 3) * boxSize+ boxSize /2;
+
+                ctx.arc(xCordinate, yCordinate, radius, startAngle, endAngle);
+                ctx.stroke();
+            }
+
+            function drawX(boxNum) {
+                var offset = 25;
+                var xCordinate = boxNum % 3 * boxSize;
+                var yCordinate = Math.floor(boxNum / 3) * boxSize;
+                ctx.moveTo(xCordinate, yCordinate);
+                ctx.lineTo(xCordinate + cSize / 3, yCordinate + cSize / 3);
+
+                ctx.moveTo(xCordinate, yCordinate + cSize / 3);
+                ctx.lineTo(xCordinate + cSize / 3, yCordinate);
+
+                ctx.stroke();
+            }
+
+            function drawLines() {
+                for (var y = 1; y <= 2; y++) {
+                    ctx.moveTo(0, y * cSize / 3);
+                    ctx.lineTo(cSize, y * cSize / 3);
+                }
+
+                for (var x = 1; x <= 2; x++) {
+                    ctx.moveTo(x * cSize / 3, 0);
+                    ctx.lineTo(x * cSize / 3, cSize);
+                }
+                ctx.stroke();
+            }
+
+            drawLines();
+            
+            document.getElementById('x').addEventListener('click', function() {
+                drawX(Number(document.getElementById('num').value));
+            })
+            document.getElementById('o').addEventListener('click', function() {
+                drawO(Number(document.getElementById('num').value));
+            })
+        }());
+    </script>
+</body>
+
+</html>

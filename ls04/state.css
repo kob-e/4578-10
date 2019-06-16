@@ -1,0 +1,33 @@
+* {
+    box-sizing: border-box;
+}
+/* state selectors 
+https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes
+ */
+div.box {
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+    border: 1px solid transparent;
+}
+
+div.box:hover {
+    color: red;
+    border-color: black;
+}
+
+a:visited {
+    color: red;
+}
+
+a:active {
+    color: brown;
+}
+
+a:hover {
+    color: pink
+}
+
+input:checked {
+    border: 2px solid black;
+}

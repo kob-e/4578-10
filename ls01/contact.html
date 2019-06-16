@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>Contact</title>
+		<meta charset="utf-8">
+		<style>
+		div {
+			color: green;
+			font-weight: 700;
+		}
+
+		h1 {
+			text-decoration: underline;
+		}
+		</style>
+	</head>
+	<body>
+		<a href="index.html">Home</a> | <a href="about.html">About</a> | <a href="contact.html">Contact</a>
+		<h1>Contact us</h1>
+		<form action="a.php">
+			<fieldset>
+				<legend>Names</legend>
+				<div>	
+					<label for="first">First name:</label> 
+					<input id="first" placeholder="first name">
+				</div>
+				<div>
+					Last name:  <input>
+				</div>
+			</fieldset>
+			<fieldset>
+				<legend>Extra details</legend>
+				<div>
+					Email: <input type="email">
+				</div>
+				<div>
+					Phone: <input type="number" placeholder="Your phone number">
+				</div>
+				<div>
+					Birth date: <input type="date">
+				</div>
+				<div>
+					<input name="gender" type="radio">Male
+					<input name="gender" type="radio">Female
+					<input name="gender" type="radio">X
+				</div>
+				<div>
+					<input type="checkbox"> Agree to send
+				</div>
+			</fieldset>
+			<button>Send</button>
+		</form>
+	</body>
+</html>

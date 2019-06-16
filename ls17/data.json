@@ -1,0 +1,9 @@
+{
+    "name": "student",
+    "age": 22,
+    "isMarried": false,
+    "kids": null,
+    "grades": [
+        1,2,3,4,5
+    ]
+}

@@ -1,0 +1,31 @@
+.box {
+    width: 33%;
+    height: 250px;
+    float: left;
+}
+
+.boxes {
+    border: 1px solid black;
+    overflow: hidden;
+}
+.red {
+    background-color: rgb(255,0,0);
+}
+
+.blue {
+    background-color: rgb(0,0,255);
+}
+
+.white {
+    width: 34%;
+    background-color: rgb(255,255,255);
+}
+
+.clear {
+    clear: both;
+}
+
+.overflow-content {
+    width: 200px;
+    height: 84px;
+}
