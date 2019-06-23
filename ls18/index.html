@@ -35,6 +35,7 @@
 
             function drawX(boxNum) {
                 var offset = 25;
+                // convert 1 dim to 2 dim 
                 var xCordinate = boxNum % 3 * boxSize;
                 var yCordinate = Math.floor(boxNum / 3) * boxSize;
                 ctx.moveTo(xCordinate, yCordinate);
@@ -48,13 +49,13 @@
 
             function drawLines() {
                 for (var y = 1; y <= 2; y++) {
-                    ctx.moveTo(0, y * cSize / 3);
-                    ctx.lineTo(cSize, y * cSize / 3);
+                    ctx.moveTo(0, y * boxSize);
+                    ctx.lineTo(cSize, y * boxSize);
                 }
 
                 for (var x = 1; x <= 2; x++) {
-                    ctx.moveTo(x * cSize / 3, 0);
-                    ctx.lineTo(x * cSize / 3, cSize);
+                    ctx.moveTo(x * boxSize, 0);
+                    ctx.lineTo(x * boxSize, boxSize);
                 }
                 ctx.stroke();
             }
