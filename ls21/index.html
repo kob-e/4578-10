@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .class-one {
+            width: 200px;
+            height: 200px;
+        }
+
+        .highlight {
+            background-color: yellow;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <input type="time">
+    <script>
+        $(document).ready(function () {
+            jQuery('#btn').click(function () {
+                jQuery('#a').addClass('highlight').append('<div 0-noteid="5" class="b">b</div>').fadeOut(2000).fadeIn(2000);
+
+            })
+            jQuery('#btn2').click(function () {
+                jQuery('#a').removeClass('highlight');
+            });
+
+            // Future elments event binding
+            $(document).on('click', '.b', function () {
+                console.log('b');
+            });
+            $(document).on('click', '.b', function () {
+                console.log('b');
+            });
+        })
+
+        /*
+        document.getElementById('btn').addEventListener('click', function() {
+            document.getElementById('a').className += ' highlight';
+        })
+
+        document.getElementById('btn2').addEventListener('click', function() {
+            let className = document.getElementById('a').className;
+            const classArray = className.split(' ');
+            const highlightIndex = classArray.indexOf('highlight');
+            classArray.splice(highlightIndex, 1);
+            const newClassName = classArray.join(' ');
+            document.getElementById('a').className = newClassName;
+        })*/
+    </script>
+        <div id=a class='class-one class-two'>asdasdasdasd</div>
+        <button id='btn'>Click me</button>
+        <button id='btn2'>Remove</button>
+</body>
+
+</html>
