@@ -1,3 +1,27 @@
+function Animal(type, nickname) {
+    this.feedLevel = 10;
+    this.type = type;
+    this.nickname = nickname;
+
+    var that = this;
+    this.feed = function() {
+        this.feedLevel++;
+        alert(this.voice());
+    }
+    var intervalId = setInterval(function() {
+        console.log(that);
+        that.feedLevel--;
+        if (that.feedLevel === 0) {
+            alert(that.nickname + ' is dead :(')
+            clearInterval(intervalId);
+        }
+    }, 5 * 1000)
+
+    this.voice = function() {
+        return 'Animal voice';
+    }
+}
+
 function Cat(nickname) {
     Animal.call(this, 'cat', nickname);
     this.voice = function() {
