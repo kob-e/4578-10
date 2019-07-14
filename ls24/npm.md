@@ -11,3 +11,6 @@
 
 ## Install package globally
 `npm i http-server -g`
+
+## Install a pacakge as dev dependency
+`npm i http-server --save-dev`
