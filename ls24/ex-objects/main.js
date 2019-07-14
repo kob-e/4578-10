@@ -1,5 +1,4 @@
 
-
 function Cat(nickname) {
     Animal.call(this, 'cat', nickname);
     this.voice = function() {
