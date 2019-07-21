@@ -10,4 +10,3 @@ console.log(p1.sayHi());
 Person.prototype.sayHi = function() {
     return 'Hi';
 }
-

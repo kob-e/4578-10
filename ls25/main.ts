@@ -9,7 +9,7 @@ class Animal {
     }
 
     voice() {
-        return `${this.name} return Animal's voice`;
+        return `abxxxxxxxxxx ${this.name} return Animal's voice`;
     }
 }
 
