@@ -1,0 +1,13 @@
+{
+  "name": "ls26",
+  "version": "1.0.0",
+  "description": "",
+  "main": "hw.js",
+  "scripts": {
+    "start": "tsc inheritance.ts && node inheritance.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc inheritance.ts"
+  },
+  "author": "",
+  "license": "ISC"
+}

@@ -2,7 +2,7 @@ class Chair {
     public Material: string;
     private _color!: string;
     private _length!: number;
-
+    public static count = 0;
     set Color(c: string) {
         const allowedColors = ['Black', 'White', 'Red', 'Green', 'Blue'];
         const allowedColorsLowerCase = allowedColors.map(function(c) {
@@ -40,6 +40,7 @@ class Chair {
         this.Length = length;
         this.Width = width;
         this.Height = height;
+        Chair.count++;
     }
 
     calcVolume(): number {
@@ -53,7 +54,18 @@ class Chair {
 
 try {
     const c1 = new Chair('s', 'Blue', 1, 1, 1);
+    const c2 = new Chair('s', 'Blue', 1, 1, 1);
+    const c3 = new Chair('s', 'Blue', 1, 1, 1);
+    const c4 = new Chair('s', 'Blue', 1, 1, 1);
+    console.log(Chair.count);
     // c1._color = 'gg';
 } catch(ex) {
     
+}
+
+enum ColorType{
+    red,
+    blue,
+    black
+
 }
