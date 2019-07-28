@@ -1,4 +1,4 @@
-import { Person, B } from './accessors-person';
+import { Person } from "./accessors-person";
 
 class Male extends Person {
     constructor(tz: number, name: string) {

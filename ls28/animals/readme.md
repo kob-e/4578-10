@@ -1,0 +1,1 @@
+`tsc main.ts --outFile ex.js --module system`
