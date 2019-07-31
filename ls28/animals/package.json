@@ -1,0 +1,14 @@
+{
+  "name": "animals",
+  "version": "1.0.0",
+  "description": "`tsc main.ts --outFile ex.js --module system`",
+  "main": "ex.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "systemjs": "^4.1.0"
+  }
+}
