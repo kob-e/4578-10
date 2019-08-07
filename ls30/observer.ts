@@ -50,7 +50,7 @@ class Observer {
     }
     
     detach() {
-
+        
     }
 
     notifyAll() {
