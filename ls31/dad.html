@@ -3,11 +3,38 @@
 
 <head>
 
+    <style>
+        .columns {
+            width: 200px;
+            height: 500px;
+            background-color: darkslategray;
+        }
 
+        .column {
+            background-color: antiquewhite;
+            box-sizing: border-box;
+            border: 1px solid black;
+            margin-bottom: 5px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
     <div id='w'></div>
+    <div class="columns">
+        <div class="column" draggable="true">
+            <header>A</header>
+        </div>
+        <div class="column" draggable="true">
+            <header>B</header>
+        </div>
+        <div class="column" draggable="true">
+            <header>C</header>
+        </div>
+    </div>
     <script>
         var w = document.getElementById("w");
         function getLocation() {
@@ -19,12 +46,22 @@
         }
 
         function showPosition(position) {
-            debugger;
             w.innerHTML = "Latitude: " + position.coords.latitude +
                 "<br>Longitude: " + position.coords.longitude;
         }
 
         getLocation();
+    </script>
+
+    <script>
+        function handleDragStart(e) {
+            this.style.opacity = '0.4';  // this / e.target is the source node.
+        }
+
+        var cols = document.querySelectorAll('.column');
+        [].forEach.call(cols, function (col) {
+            col.addEventListener('dragstart', handleDragStart, false);
+        });
     </script>
 </body>
 
