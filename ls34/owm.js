@@ -6,8 +6,9 @@ function sendToWeather(selectedCity) {
         var req = new XMLHttpRequest();
         req.onreadystatechange = function (aEvt) {
             if (req.readyState == 4) {
-                if (req.status == 200) {
+                if (req.status == 200 && selectedCity !== 'paris') {
                     var obj = JSON.parse(this.responseText)
+                    console.log(selectedCity);
                     rs({
                         name: obj.name,
                         temp: obj.main.temp
@@ -23,16 +24,23 @@ function sendToWeather(selectedCity) {
 
 }
 
+/* all wait for all promises to Resolve. forEach iterate over array */
+Promise.all([
+    sendToWeather('jerusalem'),
+    sendToWeather('paris'),
+    sendToWeather('stockholm'),
+    sendToWeather('berlin')
+]).then(allData => allData.forEach((data, i) => weather.innerHTML += `<div data-i=${i} class="box">${data.name}: ${data.temp}<div>`))
+.catch(err => console.log(err));
 
-sendToWeather('jerusalem').then(data => {
-    weather.innerHTML += '<div class="box">' + data.name + ': ' + data.temp + '<div>';
-});
-sendToWeather('paris').then(data => {
-    weather.innerHTML += '<div class="box">' + data.name + ': ' + data.temp + '<div>';
-});
-sendToWeather('stockholm').then(data => {
-    weather.innerHTML += '<div class="box">' + data.name + ': ' + data.temp + '<div>';
-});
-sendToWeather('berlin').then(data => {
-    weather.innerHTML += '<div class="box">' + data.name + ': ' + data.temp + '<div>';
-});
+
+
+sendToWeather('jerusalem')
+    .then(data => weather.innerHTML += `<div class="box">${data.name}: ${data.temp}<div>`)
+    .then(data => sendToWeather('paris'))
+    .then(data => weather.innerHTML += `<div class="box">${data.name}: ${data.temp}<div>`)
+    .then(data => sendToWeather('stockholm'))
+    .then(data => weather.innerHTML += `<div class="box">${data.name}: ${data.temp}<div>`)
+    .then(data => sendToWeather('berlin'))
+    .then(data => weather.innerHTML += `<div class="box">${data.name}: ${data.temp}<div>`)
+    .catch(err => console.log(err));
