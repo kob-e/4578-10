@@ -7,7 +7,7 @@
 */
 
 function Card() {
-  	
+  	 
 }
 
 function App {
