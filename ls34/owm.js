@@ -6,7 +6,7 @@ function sendToWeather(selectedCity) {
         var req = new XMLHttpRequest();
         req.onreadystatechange = function (aEvt) {
             if (req.readyState == 4) {
-                if (req.status == 200 && selectedCity !== 'paris') {
+                if (req.status == 200 && selectedCity !== 'stockholm') {
                     var obj = JSON.parse(this.responseText)
                     console.log(selectedCity);
                     rs({
@@ -43,4 +43,6 @@ sendToWeather('jerusalem')
     .then(data => weather.innerHTML += `<div class="box">${data.name}: ${data.temp}<div>`)
     .then(data => sendToWeather('berlin'))
     .then(data => weather.innerHTML += `<div class="box">${data.name}: ${data.temp}<div>`)
-    .catch(err => console.log(err));
+    .catch(error => Promise.resolve(1))
+
+ 
