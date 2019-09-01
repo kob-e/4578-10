@@ -9,7 +9,7 @@ function Button(props) {
  
  function Incrementor() {
     /* any logic */
-     const [count, setCount] = useState(0);
+     const [count, setCount] = useState(0); 
      const setCountEvent = (i) => setCount(count+i);
    
    /* end of any logic */
