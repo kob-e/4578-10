@@ -2,25 +2,37 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+	counter;
+	constructor(props) {
+		super(props);
+		this.state = {
+			profiles: []
+		}
+		this.counter = 0;
+	}
+
+	addUser = async (u) => {
+		console.log(u);
+		const resp = await fetch(`https://api.github.com/users/${u}`);
+		const newUser = await resp.json();
+		newUser.key = this.counter++;
+		this.setState((prevState) => {
+			return {
+				profiles: [...prevState.profiles, newUser]
+			};
+		});
+	}
+
+	render() {
+		return (
+			<div>
+				<Header />
+				<Form addUser={this.addUser} />
+				<List profiles={this.state.profiles} />
+			</div>
+		)
+	}
 }
 
 export default App;

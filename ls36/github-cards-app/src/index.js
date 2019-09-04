@@ -1,11 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import  from './app';
 import * as serviceWorker from './serviceWorker';
 
 /* React */
 
 function List(props) {
+	/*	{props.profiles.map(p => <Card name={p.name} company={p.company} />)} */
 	return (
 		<>
 			{props.profiles.map(p => <Card {...p} />)}
@@ -31,6 +33,7 @@ class Card extends React.Component {
 		)
 	}
 }
+
 class Form extends React.Component {
 	constructor(props) {
 		super(props);
@@ -55,38 +58,7 @@ function Header() {
 	return <h1>The GitHub Cards App</h1>
 }
 
-class App extends React.Component {
-	counter;
-	constructor(props) {
-		super(props);
-		this.state = {
-			profiles: []
-		}
-		this.counter = 0;
-	}
 
-	addUser = async (u) => {
-		console.log(u);
-		const resp = await fetch(`https://api.github.com/users/${u}`);
-		const newUser = await resp.json();
-		newUser.key = this.counter++;
-		this.setState((prevState) => {
-			return {
-				profiles: [...prevState.profiles, newUser]
-			};
-		});
-	}
-
-	render() {
-		return (
-			<div>
-				<Header />
-				<Form addUser={this.addUser} />
-				<List profiles={this.state.profiles} />
-			</div>
-		)
-	}
-}
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
