@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <label>name<input id='uname'></label>
+    <label>phone<input id='phone'></label>
+    <label>city<input id='city'></label>
+    <button id='send'>Send</button>
+
+    <script>
+        document.getElementById('send').addEventListener('click', function () {
+            const qs = `name=${uname.value}&phone=${phone.value}&city=${city.value}`;
+            var oReq = new XMLHttpRequest();
+            oReq.addEventListener("load", function () {
+                console.log(this.responseText);
+            });
+
+            oReq.open("GET", "http://localhost:3200/contact?" + qs);
+            // oReq.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+            oReq.send();
+        })
+    </script>
+</body>
+
+</html>

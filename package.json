@@ -1,0 +1,19 @@
+{
+  "name": "yaakov",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kob-e/4578-10.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kob-e/4578-10/issues"
+  },
+  "homepage": "https://github.com/kob-e/4578-10#readme"
+}
