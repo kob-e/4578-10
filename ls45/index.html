@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <fieldset>
+        <legend>Add contact</legend>
+        <label>name<input id='uname'></label>
+        <label>phone<input id='phone'></label>
+        <label>city<input id='city'></label>
+        <button id='send'>Send</button>
+    </fieldset>
+    <fieldset>
+        <legend>Remove contact</legend>
+        <label>phone<input id='removePhone'></label>
+        <button id='removeContact'>Send</button>
+    </fieldset>
+
+
+    <script>
+        const BASE_URL = 'http://localhost:3200';
+        const DELETE_CONTACT_ENDPOINT = 'contact-delete';
+        const ADD_CONTACT_ENDPOINT = 'contact-add';
+
+        document.getElementById('send').addEventListener('click', function () {
+            const qs = `name=${uname.value}&phone=${phone.value}&city=${city.value}`;
+            serverCall(qs, ADD_CONTACT_ENDPOINT)
+        });
+        document.getElementById('removeContact').addEventListener('click', function () {
+            const qs = `phone=${removePhone.value}`;
+            serverCall(qs, DELETE_CONTACT_ENDPOINT)
+        });
+
+        function serverCall(qs, endpoint) {
+            fetch(`${BASE_URL}/${endpoint}?${qs}`).then(fetchRes => {
+                fetchRes.text().then(textRes => {
+                    console.log(textRes);
+                })
+            })
+        }
+
+    </script>
+</body>
+
+</html>
