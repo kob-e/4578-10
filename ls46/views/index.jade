@@ -1,15 +1,11 @@
 extends layout
 
 block content
-    h1= title
-    a(href="/") home
-    p Welcome to #{title}
-    form(method="post" action="/")
-        fieldset
-            legend Contact us
-            label First name
-                input(type="text", placeholder="First name", name="fname")
-            label Last name
-                input(type="text", placeholder="Last name", name="lname")
-            input(type="hidden", name="myhidden" value="hiddd")
-            button(name="submit", type="submit") submit
+    h1 Contact form
+    p #{title}
+    form(method="post", action="/")
+        label first name
+            input(name="fname", placeholder="first name")
+        label phone 
+            input(name="phone", placeholder="phone")
+        button Send
