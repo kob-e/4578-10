@@ -11,13 +11,7 @@ function getRunners(callback) {
         if (e) {
             callback(e);
         } else {
-            let kmArray = [];
-            allRunners.forEach(runner => {
-                kmArray.push(runner.km);
-            });
-            kmArray = [...new Set(kmArray)];
-            kmArray = kmArray.sort((a, b) => a - b);
-            callback(null, allRunners, kmArray);
+            callback(null, allRunners);
         }
     })
 }

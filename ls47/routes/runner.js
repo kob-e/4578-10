@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 const runnerBusinessLogic = require('./runner-bl');
 const fs = require('fs');
+const constants = require('./constants');
 
 /* GET runners list. */
 function runnersListGetCtrl(req, res, next) {
@@ -11,7 +12,7 @@ function runnersListGetCtrl(req, res, next) {
         res.redirect('/login');
     } else {
 
-        runnerBusinessLogic.getRunners((e, allRunners, kmArray) => {
+        runnerBusinessLogic.getRunners((e, allRunners) => {
             if (e) {
                 console.log(e);
             } else {
@@ -34,7 +35,7 @@ function runnersListGetCtrl(req, res, next) {
                     title = '';
                 }
 
-                res.render('runner', { kmArray: kmArray, title: title, onFilter: onFilter });
+                res.render('runner', { kmArray: constants.kmArray, title: title, runnerList: onFilter });
             }
         })
     }
@@ -88,7 +89,7 @@ function runnersListPostCtrl(req, res, next) {
 
 /* GET add runner */
 function addRunnerGetCtrl(req, res, next) {
-    res.render('add-runner', { title: 'Please fill all fields' });
+    res.render('add-runner', { kmArray: constants.kmArray, title: 'Please fill all fields' });
 };
 
 /* POST add runner */

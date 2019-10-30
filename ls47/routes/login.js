@@ -7,7 +7,6 @@ router.get('/', function (req, res) {
 router.post('/', function (req, res) {
     if (req.body.username == 'abc' && req.body.password == '123') {
         req.session.xyz = true;
-        req.session.rand = Math.random();
         req.session.username = req.body.username;
         res.redirect('/runner/list');
     } else {

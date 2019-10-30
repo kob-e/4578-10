@@ -1,21 +1,20 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var cookieSession = require('cookie-session')
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const cookieSession = require('cookie-session')
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var runnerRouter = require('./routes/runner');
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+const runnerRouter = require('./routes/runner');
 const loginRouter = require('./routes/login');
-var app = express();
+
+const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
-
-
 
 app.use(cookieSession({
     maxAge: 24 * 60 * 60 * 1000,
