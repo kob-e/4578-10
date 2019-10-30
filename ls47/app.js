@@ -3,7 +3,6 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const expressSession = require('express-session');
 var cookieSession = require('cookie-session')
 
 var indexRouter = require('./routes/index');
@@ -22,14 +21,7 @@ app.use(cookieSession({
     maxAge: 24 * 60 * 60 * 1000,
     keys: ["ssshhhhh"],
 }));
-app.use(expressSession({
-    secret: 'ssshhhhh',
-    saveUninitialized: true,
-    resave: true,
-    cookie: {
-        maxAge: 24 * 60 * 60 * 1000
-    }
-}));
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
