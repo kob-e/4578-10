@@ -19,7 +19,7 @@ app.set('view engine', 'jade');
 
 app.use(cookieSession({
     maxAge: 24 * 60 * 60 * 1000,
-    keys: ["ssshhhhh"],
+    keys: ["ssshhhhh"]
 }));
 
 app.use(logger('dev'));
