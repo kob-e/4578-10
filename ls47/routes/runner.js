@@ -43,6 +43,15 @@ function runnersListGetCtrl(req, res, next) {
 
 /* POST runners list. */
 function runnersListPostCtrl(req, res, next) {
+    console.log(req.body);
+    if (req.body.update) {
+
+    }
+
+
+
+
+
     if (req.body.fullList === '') {
         return next();
     } else if (req.body.filter === '') {
@@ -92,6 +101,40 @@ function addRunnerGetCtrl(req, res, next) {
     res.render('add-runner', { kmArray: constants.kmArray, title: 'Please fill all fields' });
 };
 
+function operationCtrl(req, res, next) {
+    const id = req.body.id;
+    const operation = req.body.op;
+
+    switch (operation) {
+        case 'update':
+            res.redirect('/runner/update/' + id);
+            break;
+        case 'delete':
+            deleteRunner();
+            break;
+        default:
+            res.redirect('/runner/list');
+    }
+
+}
+
+function updateCtrl(req, res) {
+    const id = req.params.id;
+    console.log(req.params);
+    runnerBusinessLogic.getRunner(id, function (err, runner) {
+        res.render('update-runner', {
+            runner: runner,
+            kmArray: constants.kmArray
+        })
+    })
+}
+
+function postUpdateCtrl(req, res) {
+    const data = req.body;
+    console.log(data);
+    res.redirect('/runner/list')
+}
+
 /* POST add runner */
 function addRunnerPostCtrl(req, res, next) {
     if (req.body.id !== '' && req.body.name !== '' && req.body.km !== '') {
@@ -117,5 +160,7 @@ function addRunnerPostCtrl(req, res, next) {
 router.get('/list', runnersListGetCtrl);
 router.post('/list', runnersListPostCtrl, runnersListGetCtrl);
 router.get('/add', addRunnerGetCtrl);
-router.post('/add', addRunnerPostCtrl, runnersListGetCtrl);
+router.post('/operation', operationCtrl);
+router.get('/update/:id', updateCtrl);
+router.post('/update', postUpdateCtrl);
 module.exports = router;

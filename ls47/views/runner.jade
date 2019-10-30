@@ -1,28 +1,32 @@
 extends logged-layout
 
 block content
-  h1 Runners List
-  p #{title}
-  form(method="post", action="/runner/list")
-    input(name='id', placeholder='ID')
-    input(name='name', placeholder='NAME')
-    select(name='km')
-      option(value="", disabled selected) KILOMETER
-        each item in kmArray
-          option(value= item)= item
-    button(name='filter') Filter
-    button(name='fullList') See Full List
+    h1 Runners List
+    p #{title}
+    form(method="post", action="/runner/list")
+        input(name='id', placeholder='ID')
+        input(name='name', placeholder='NAME')
+        select(name='km')
+            option(value="", disabled selected) KILOMETER
+            each item in kmArray
+                option(value= item)= item
+        button(name='filter') Filter
+        button(name='fullList') See Full List
+    
     table 
         thead
-          tr
+            tr
             th id
             th name
             th km
         tbody
-          each item in runnerList
-            tr 
-              td= item.id
-              td= item.name
-              td= item.km
-              td
-                button(name='delete', value=`${item.id},${item.name},${item.km}`) Delete Runner
+            each item in runnerList
+                tr 
+                    td= item.id
+                    td= item.name
+                    td= item.km
+                    td
+                        form(method="post", action="/runner/operation" )
+                            input(name="id",type="hidden", value=item.id)
+                            button(name='op', value='update') Update Runner
+                            button(name='op', value='delete') Delete Runner

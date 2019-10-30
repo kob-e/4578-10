@@ -1,0 +1,13 @@
+extends logged-layout
+
+block content
+    h1 Update runner
+    p #{title}
+    form(method="post", action="/runner/update")
+        input(value=runner.id, disabled)
+        input(name='id', value=runner.id, type="hidden")
+        input(name='name', placeholder="NAME", value=runner.name)
+        select(name='km')
+            each item in kmArray
+                option(value= item)= item
+        button(name='update') Update Runner

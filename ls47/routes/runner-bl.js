@@ -1,9 +1,12 @@
 const dal = require('./dal');
 
-function getRunner(id) {
+function getRunner(id, callback) {
+    callback(null, { "id": id, "name": "abc", "km": 42 });
+    /*
     dal.getRunner(id, function (runnerData) {
 
     })
+    */
 }
 
 function getRunners(callback) {
@@ -59,7 +62,10 @@ function filterRunnersList(selectedFiltersValues, callback) {
         }
     })
 }
+module.exports.updateRunner = function () {
 
+}
+module.exports.getRunner = getRunner;
 module.exports.getRunners = getRunners;
 module.exports.createRunner = createRunner;
 module.exports.filterRunnersList = filterRunnersList;
