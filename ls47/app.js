@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const session = require('express-session');
+const expressSession = require('express-session');
 var cookieSession = require('cookie-session')
 
 var indexRouter = require('./routes/index');
@@ -19,9 +19,10 @@ app.set('view engine', 'jade');
 
 
 app.use(cookieSession({
-    maxAge: 24 * 60 * 60 * 1000
+    maxAge: 24 * 60 * 60 * 1000,
+    keys: ["ssshhhhh"],
 }));
-app.use(session({
+app.use(expressSession({
     secret: 'ssshhhhh',
     saveUninitialized: true,
     resave: true,
@@ -34,6 +35,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(function (req, res, next) {
+    res.locals.username = req.session.username;
+    next();
+});
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

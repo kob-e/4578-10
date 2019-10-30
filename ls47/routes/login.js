@@ -8,9 +8,20 @@ router.post('/', function (req, res) {
     if (req.body.username == 'abc' && req.body.password == '123') {
         req.session.xyz = true;
         req.session.rand = Math.random();
+        req.session.username = req.body.username;
         res.redirect('/runner/list');
     } else {
         res.redirect('/login');
     }
 });
+
+router.get('/end', function (req, res) {
+    req.session.destroy((err) => {
+        if (err) {
+            return console.log(err);
+        }
+        res.render('login');
+    });
+});
+
 module.exports = router;

@@ -1,0 +1,12 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    nav
+        a(href='http://localhost:3000') Home |  
+        a(href='http://localhost:3000/runner/list') Runners List |  
+        a(href='http://localhost:3000/runner/add') Sign Up for the Marathon | 
+        a(href='/login/end') Logout (#{username})
+    block content
