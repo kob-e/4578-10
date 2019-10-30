@@ -1,5 +1,32 @@
 extends layout
 
 block content
-  h1= id
-  p Welcome to #{name} you run #{km} km
+  nav
+    a(href='http://localhost:3000') Home |  
+    a(href='http://localhost:3000/runner/list') Runners List |  
+    a(href='http://localhost:3000/runner/add') Sign Up for the Marathon
+  h1 Runners List
+  p #{title}
+  form(method="post", action="/runner/list")
+    input(name='id', placeholder='ID')
+    input(name='name', placeholder='NAME')
+    select(name='km')
+      option(value="", disabled selected) KILOMETER
+        each item in kmArray
+          option(value= item)= item
+    button(name='filter') Filter
+    button(name='fullList') See Full List
+    table 
+        thead
+          tr
+            th id
+            th name
+            th km
+        tbody
+          each item in onFilter
+            tr 
+              td= item.id
+              td= item.name
+              td= item.km
+              td
+                button(name='delete', value=`${item.id},${item.name},${item.km}`) Delete Runner

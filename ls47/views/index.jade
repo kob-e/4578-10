@@ -1,5 +1,9 @@
 extends layout
 
 block content
+  nav
+    a(href='http://localhost:3000') Home |  
+    a(href='http://localhost:3000/runner/list') Runners List |  
+    a(href='http://localhost:3000/runner/add') Sign Up for the Marathon
   h1= title
-  p Welcome to #{title}
+  

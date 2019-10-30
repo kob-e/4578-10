@@ -1,0 +1,14 @@
+extends layout
+
+block content
+    nav
+        a(href='http://localhost:3000') Home |  
+        a(href='http://localhost:3000/runner/list') Runners List |  
+        a(href='http://localhost:3000/runner/add') Sign Up for the Marathon
+    h1 Sign Up for the Marathon
+    p #{title}
+    form(method="post", action="/runner/add")
+        input(name='id', placeholder="ID")
+        input(name='name', placeholder="NAME")
+        input(name='km', placeholder="KM")
+        button(name='addRunner') Add Runner
