@@ -78,21 +78,6 @@ function runnersListPostCtrl(req, res, next) {
                 }
             })
         }
-    } else if (req.body.delete !== '') {
-        const runnerToDeleteArray = (req.body.delete).split(',');
-        const runnerToDelete = {
-            id: runnerToDeleteArray[0],
-            name: runnerToDeleteArray[1],
-            km: runnerToDeleteArray[2]
-        }
-        runnerBusinessLogic.deleteRunner(runnerToDelete, (e) => {
-            if (e) {
-                console.log(e);
-            } else {
-                req.body.runnerDeleted = 'Runner deleted';
-                return next();
-            }
-        })
     }
 };
 
@@ -110,7 +95,9 @@ function operationCtrl(req, res, next) {
             res.redirect('/runner/update/' + id);
             break;
         case 'delete':
-            deleteRunner();
+            deleteRunner(id, () => {
+                res.redirect('/runner/list');
+            });
             break;
         default:
             res.redirect('/runner/list');
@@ -157,10 +144,21 @@ function addRunnerPostCtrl(req, res, next) {
     }
 }
 
+function deleteRunner(runnerId, callback) {
+    runnerBusinessLogic.deleteRunner(runnerId, (e) => {
+        if (e) {
+            console.log(e);
+        } else {
+            callback();
+        }
+    })
+}
+
 router.get('/list', runnersListGetCtrl);
 router.post('/list', runnersListPostCtrl, runnersListGetCtrl);
 router.get('/add', addRunnerGetCtrl);
 router.post('/operation', operationCtrl);
 router.get('/update/:id', updateCtrl);
 router.post('/update', postUpdateCtrl);
+
 module.exports = router;
