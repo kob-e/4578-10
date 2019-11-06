@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}\\ls49\\server.js"
+            "program": "${workspaceFolder}\\ls50\\index.js"
         }
     ]
 }
