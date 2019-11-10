@@ -1,5 +1,7 @@
 const fs = require('fs');
 
+let fileName = '';
+
 function readAll(callback) {
     const fileName = 'phones/phones.json';
     fs.readFile(fileName, (e, d) => {
@@ -19,7 +21,6 @@ function readOne(id, callback) {
 }
 
 function saveOne(newPhone, callback) {
-    const fileName = 'phones/phones.json';
     fs.readFile(fileName, (e, d) => {
         const data = d && d.length > 0 ? JSON.parse(d.toString()) : [];
         data.push(newPhone);
@@ -35,7 +36,6 @@ function saveOne(newPhone, callback) {
 }
 
 function updateOne(phone, callback) {
-    const fileName = 'phones/phones.json';
     fs.readFile(fileName, (e, d) => {
         const data = d && d.length > 0 ? JSON.parse(d.toString()) : [];
         const index = data.findIndex(({ id }) => id.toString() === phone.id);
@@ -70,8 +70,14 @@ function deleteOne(idToDelete, callback) {
     });
 }
 
-module.exports.readAll = readAll;
-module.exports.readOne = readOne;
-module.exports.saveOne = saveOne;
-module.exports.updateOne = updateOne;
-module.exports.deleteOne = deleteOne;
+function dalModule(fileName) {
+    fileName = fileName;
+    return {
+        readAll: readAll,
+        readOne: readOne,
+        saveOne: saveOne,
+        updateOne: updateOne,
+        deleteOne: deleteOne
+    }
+}
+module.exports = dalModule;
