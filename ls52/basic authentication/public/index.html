@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        user: <input id=user>
+        pass: <input id=pass>
+        <button id=send>Send</button>
+    </div>
+
+    <script>
+        document.getElementById('send').addEventListener('click', function () {
+            const params = {
+                user: document.getElementById('user').value,
+                pass: document.getElementById('pass').value
+            };
+            fetch('/auth', {
+                method: 'POST',
+                body: JSON.stringify(),
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'basic ' + btoa(params.user + ':' + params.pass)
+                }
+            }).then(res => {
+                delete params;
+
+            })
+        })
+    </script>
+</body>
+
+</html>
