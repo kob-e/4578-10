@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/kob-e/4578-10/issues"
   },
-  "homepage": "https://github.com/kob-e/4578-10#readme"
+  "homepage": "https://github.com/kob-e/4578-10#readme",
+  "dependencies": {
+    "jsonwebtoken": "^8.5.1"
+  }
 }

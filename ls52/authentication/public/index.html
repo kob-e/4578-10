@@ -14,8 +14,24 @@
         pass: <input id=pass>
         <button id=send>Send</button>
     </div>
+    <div>
+        <button id='api'>Get service</button>
+    </div>
 
     <script>
+        document.getElementById('api').addEventListener('click', function () {
+            fetch('/service', {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'bearer ' + window.localStorage.getItem('token')
+                }
+            }).then(res => {
+                res.text().then(res => {
+                    console.log(res);
+                })
+            })
+        })
+
         document.getElementById('send').addEventListener('click', function () {
             const params = {
                 user: document.getElementById('user').value,
@@ -30,6 +46,10 @@
                 }
             }).then(res => {
                 delete params;
+                res.text().then(token => {
+                    window.localStorage.setItem('token', token);
+                })
+
 
             })
         })
