@@ -15,7 +15,14 @@ function get(lazyLoad = false, callback) {
     arr = arr.map(c => new cityModel(c));
 
     if (lazyLoad) {
-        arr = arr.map(c => c.CountryCodeModel = countryBl.get(c.CountryCode));
+        const promises = [];
+
+        arr.forEach(c => promises.push(countryBl.get(c.CountryCode)));
+
+        Promise.all(promises).then(res => {
+            console.log(res);
+            console.log('all done')
+        })
     }
     callback(arr);
 }
